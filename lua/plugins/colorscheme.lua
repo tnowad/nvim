@@ -2,9 +2,9 @@ return {
   'Mofiqul/adwaita.nvim',
   priority = 1000,
   config = function()
-    vim.g.adwaita_darker = true -- for darker version
-    vim.g.adwaita_disable_cursorline = true -- to disable cursorline
-    vim.g.adwaita_transparent = true -- makes the background transparent
+    vim.g.adwaita_darker = true
+    vim.g.adwaita_disable_cursorline = true
+    vim.g.adwaita_transparent = true
     vim.cmd 'colorscheme adwaita'
   end,
 }
