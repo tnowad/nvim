@@ -19,10 +19,10 @@ return {
           keymap = {
             accept_word = false,
             accept_line = false,
-            accept = '<C-S-y>',
-            next = '<C-n>',
-            prev = '<C-p>',
-            dismiss = '<C-\\>',
+            accept = '<C-A-y>',
+            next = '<C-A-n>',
+            prev = '<C-A-p>',
+            dismiss = '<C-A-\\>',
           },
         },
       }
