@@ -1,51 +1,64 @@
--- Set <space> as the leader key
+-- Leader keys
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- [[ Setting options ]]
--- Line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
-
--- General settings
-vim.opt.mouse = '' -- Disable mouse support
-vim.opt.showmode = false -- Don't show the mode (already in status line)
-vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim
-vim.opt.breakindent = true -- Enable break indent
-vim.opt.undofile = true -- Save undo history
-vim.opt.swapfile = false -- Disable swap file
-vim.opt.ignorecase = true -- Case-insensitive searching
-vim.opt.smartcase = true -- Case-sensitive if capital letters present
-vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
-vim.opt.updatetime = 250 -- Decrease update time
-vim.opt.timeoutlen = 300 -- Decrease mapped sequence wait time
-vim.opt.splitright = true -- Open new vertical splits to the right
-vim.opt.splitbelow = true -- Open new horizontal splits below
-
--- Display options
-vim.opt.list = true -- Display certain whitespace characters
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Set how whitespace characters are displayed
-
--- Indentation
-vim.opt.shiftwidth = 2 -- Number of spaces for each indentation level
-vim.opt.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
-vim.opt.smartindent = true -- Enable smart indentation
-vim.opt.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performing editing operations
-vim.opt.expandtab = true -- Convert tabs to spaces
-vim.opt.autoindent = true -- Copy indent from current line when starting a new line
-vim.opt.wrap = false -- Disable line wrapping
-
--- Search and substitution
-vim.opt.inccommand = 'split' -- Preview substitutions live as you type
-vim.opt.hlsearch = true -- Highlight search results
-
--- Cursor settings
+-- User Interface settings
+vim.opt.number = true -- Show line numbers
+vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.signcolumn = 'yes' -- Always show sign column
 vim.opt.cursorline = true -- Highlight the current line
 vim.opt.cursorcolumn = true -- Highlight the current column
 vim.opt.colorcolumn = '80' -- Highlight column 80
+vim.opt.scrolloff = 10 -- Minimum number of screen lines to keep above and below the cursor
+vim.opt.wrap = false -- Disable line wrapping
+vim.opt.showmode = false -- Do not show mode in the command line
 
--- Scroll settings
-vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor
+-- Mouse settings
+vim.opt.mouse = '' -- Disable mouse
 
--- [[ Custom settings ]]
-vim.g.have_nerd_font = false
+-- Clipboard settings
+vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
+
+-- Indentation settings
+vim.opt.shiftwidth = 2 -- Number of spaces for each step of (auto)indent
+vim.opt.tabstop = 2 -- Number of spaces that a <Tab> counts for
+vim.opt.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performing editing operations
+vim.opt.smartindent = true -- Smart autoindenting when starting a new line
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.autoindent = true -- Copy indent from current line when starting a new line
+vim.opt.breakindent = true -- Wrap indent to match line start
+
+-- Search settings
+vim.opt.ignorecase = true -- Ignore case in search patterns
+vim.opt.smartcase = true -- Override ignorecase if search pattern contains upper case characters
+vim.opt.hlsearch = true -- Highlight all matches of search pattern
+
+-- File handling
+vim.opt.undofile = true -- Save undo history to an undo file
+vim.opt.swapfile = false -- Do not use swapfile
+
+-- Performance settings
+vim.opt.updatetime = 250 -- Faster completion (default is 4000 ms)
+vim.opt.timeoutlen = 300 -- Time to wait for a mapped sequence to complete
+
+-- Window splitting
+vim.opt.splitright = true -- Vertical splits will automatically be to the right
+vim.opt.splitbelow = true -- Horizontal splits will automatically be below
+
+-- Display settings
+vim.opt.list = true -- Show some invisible characters
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Define characters for displaying hidden characters
+
+-- Command-line
+vim.opt.inccommand = 'split' -- Live preview of substitution
+
+-- Syntax highlighting
+vim.opt.syntax = 'on' -- Enable syntax highlighting
+vim.opt.synmaxcol = 240 -- Maximum column for syntax highlighting
+
+-- Custom settings
+vim.g.have_nerd_font = false -- Custom variable for nerd fonts
+vim.g.loaded_python_provider = 0 -- Disable python provider
+vim.g.loaded_python3_provider = 0 -- Disable python3 provider
+vim.g.loaded_ruby_provider = 0 -- Disable ruby provider
+vim.g.loaded_perl_provider = 0 -- Disable perl provider
