@@ -1,79 +1,51 @@
 -- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
-
 -- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
--- Make line numbers default
+-- Line numbers
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
--- Disable mouse support
-vim.opt.mouse = ''
+-- General settings
+vim.opt.mouse = '' -- Disable mouse support
+vim.opt.showmode = false -- Don't show the mode (already in status line)
+vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim
+vim.opt.breakindent = true -- Enable break indent
+vim.opt.undofile = true -- Save undo history
+vim.opt.swapfile = false -- Disable swap file
+vim.opt.ignorecase = true -- Case-insensitive searching
+vim.opt.smartcase = true -- Case-sensitive if capital letters present
+vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
+vim.opt.updatetime = 250 -- Decrease update time
+vim.opt.timeoutlen = 300 -- Decrease mapped sequence wait time
+vim.opt.splitright = true -- Open new vertical splits to the right
+vim.opt.splitbelow = true -- Open new horizontal splits below
 
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
+-- Display options
+vim.opt.list = true -- Display certain whitespace characters
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Set how whitespace characters are displayed
 
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.opt.clipboard = 'unnamedplus'
+-- Indentation
+vim.opt.shiftwidth = 2 -- Number of spaces for each indentation level
+vim.opt.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
+vim.opt.smartindent = true -- Enable smart indentation
+vim.opt.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performing editing operations
+vim.opt.expandtab = true -- Convert tabs to spaces
+vim.opt.autoindent = true -- Copy indent from current line when starting a new line
+vim.opt.wrap = false -- Disable line wrapping
 
--- Enable break indent
-vim.opt.breakindent = true
+-- Search and substitution
+vim.opt.inccommand = 'split' -- Preview substitutions live as you type
+vim.opt.hlsearch = true -- Highlight search results
 
--- Save undo history
-vim.opt.undofile = true
-vim.opt.swapfile = false
+-- Cursor settings
+vim.opt.cursorline = true -- Highlight the current line
+vim.opt.cursorcolumn = true -- Highlight the current column
+vim.opt.colorcolumn = '80' -- Highlight column 80
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+-- Scroll settings
+vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor
 
--- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
-
--- Show which line your cursor is on
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
-
+-- [[ Custom settings ]]
 vim.g.have_nerd_font = false
