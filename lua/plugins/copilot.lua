@@ -25,6 +25,10 @@ return {
             dismiss = '<C-A-\\>',
           },
         },
+        filetypes = {
+          gitcommit = true,
+          markdown = true,
+        },
       }
     end,
   },
