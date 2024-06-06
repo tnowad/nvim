@@ -41,3 +41,6 @@ vim.keymap.set('n', '<leader>ci', '<cmd>lua vim.lsp.buf.implementation()<CR>', {
 vim.keymap.set('n', '<leader>ch', '<cmd>lua vim.lsp.buf.hover()<CR>', { desc = 'Show hover' })
 vim.keymap.set('n', '<leader>cs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { desc = 'Show signature help' })
 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = 'Show code actions' })
+vim.keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', { desc = 'Format' })
+-- vim.diagnostic.open_float()
+vim.keymap.set('n', '<leader>ce', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Show diagnostics' })
