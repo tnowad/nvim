@@ -1,14 +1,14 @@
 return {
   {
-    'zbirenbaum/copilot.lua',
+    "zbirenbaum/copilot.lua",
     dependencies = {
-      'hrsh7th/nvim-cmp',
+      "hrsh7th/nvim-cmp",
     },
-    cmd = 'Copilot',
-    build = ':Copilot auth',
-    event = { 'InsertEnter', 'LspAttach' },
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = { "InsertEnter", "LspAttach" },
     config = function()
-      require('copilot').setup {
+      require("copilot").setup({
         panel = {
           enabled = true,
           auto_refresh = true,
@@ -19,17 +19,17 @@ return {
           keymap = {
             accept_word = false,
             accept_line = false,
-            accept = '<C-A-y>',
-            next = '<C-A-n>',
-            prev = '<C-A-p>',
-            dismiss = '<C-A-\\>',
+            accept = "<C-A-y>",
+            next = "<C-A-n>",
+            prev = "<C-A-p>",
+            dismiss = "<C-A-\\>",
           },
         },
         filetypes = {
           gitcommit = true,
           markdown = true,
         },
-      }
+      })
     end,
   },
 }
