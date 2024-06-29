@@ -27,17 +27,4 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
--- lazygit keymap
-
-vim.keymap.set("n", "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Show definitions" })
-vim.keymap.set("n", "<leader>cr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "Show references" })
-vim.keymap.set("n", "<leader>cn", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename" })
-vim.keymap.set("n", "<leader>ct", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Show type definition" })
-vim.keymap.set("n", "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Show implementation" })
-vim.keymap.set("n", "<leader>ch", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Show hover" })
-vim.keymap.set("n", "<leader>cs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Show signature help" })
-vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Show code actions" })
-vim.keymap.set("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { desc = "Format" })
--- vim.diagnostic.open_float()
 vim.keymap.set("n", "<leader>ce", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show diagnostics" })
