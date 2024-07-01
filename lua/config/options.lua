@@ -1,23 +1,23 @@
 -- Leader keys
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- User Interface settings
 vim.opt.number = true -- Show line numbers
 vim.opt.relativenumber = true -- Relative line numbers
-vim.opt.signcolumn = 'yes' -- Always show sign column
+vim.opt.signcolumn = "yes" -- Always show sign column
 vim.opt.cursorline = true -- Highlight the current line
 vim.opt.cursorcolumn = true -- Highlight the current column
-vim.opt.colorcolumn = '80' -- Highlight column 80
+vim.opt.colorcolumn = "80" -- Highlight column 80
 vim.opt.scrolloff = 10 -- Minimum number of screen lines to keep above and below the cursor
 vim.opt.wrap = false -- Disable line wrapping
 vim.opt.showmode = false -- Do not show mode in the command line
 
 -- Mouse settings
-vim.opt.mouse = '' -- Disable mouse
+vim.opt.mouse = "" -- Disable mouse
 
 -- Clipboard settings
-vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 
 -- Indentation settings
 vim.opt.shiftwidth = 2 -- Number of spaces for each step of (auto)indent
@@ -47,13 +47,13 @@ vim.opt.splitbelow = true -- Horizontal splits will automatically be below
 
 -- Display settings
 vim.opt.list = true -- Show some invisible characters
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Define characters for displaying hidden characters
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Define characters for displaying hidden characters
 
 -- Command-line
-vim.opt.inccommand = 'split' -- Live preview of substitution
+vim.opt.inccommand = "split" -- Live preview of substitution
 
 -- Syntax highlighting
-vim.opt.syntax = 'on' -- Enable syntax highlighting
+vim.opt.syntax = "on" -- Enable syntax highlighting
 vim.opt.synmaxcol = 240 -- Maximum column for syntax highlighting
 
 -- Custom settings
