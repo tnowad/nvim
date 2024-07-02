@@ -6,7 +6,7 @@ return {
     },
     cmd = "Copilot",
     build = ":Copilot auth",
-    event = { "InsertEnter", "LspAttach" },
+    event = { "InsertEnter" },
     config = function()
       require("copilot").setup({
         panel = {
