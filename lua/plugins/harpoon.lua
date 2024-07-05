@@ -24,5 +24,6 @@ return {
       "Harpoon remove"
     )
     map("n", "<leader>hc", "<cmd>lua require('harpoon.mark').clear_all()<CR>", "Harpoon clear")
+    map("n", "<leader>ht", "<cmd>lua require('harpoon.term').gotoTerminal(1)<CR>", "Harpoon terminal 1")
   end,
 }
