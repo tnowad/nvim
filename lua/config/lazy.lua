@@ -18,6 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
   spec = {
     { import = "plugins" },
   },
@@ -25,8 +26,14 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  install = {
+    colorscheme = {
+      "adwaita",
+    },
+  },
+  checker = {
+    enabled = false,
+  },
   performance = {
     rtp = {
       -- disable some rtp plugins
@@ -40,6 +47,15 @@ require("lazy").setup({
         "tutor",
         "zipPlugin",
       },
+    },
+  },
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
+  ui = {
+    icons = {
+      enabled = false,
     },
   },
 })
