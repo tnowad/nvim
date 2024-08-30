@@ -37,6 +37,7 @@ return {
       less = { "prettierd" },
       svelte = { "prettierd" },
       c = { "clang-format" },
+      cpp = { "clang-format" },
     },
   },
 }
