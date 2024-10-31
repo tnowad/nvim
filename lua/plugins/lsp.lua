@@ -71,6 +71,7 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
+
       -- clangd = {},
       -- gopls = {},
       -- pyright = {},
@@ -83,7 +84,10 @@ return {
       -- But for many setups, the LSP (`tsserver`) will work just fine
       -- tsserver = {},
       --
-
+      textlsp = {
+        filetypes = { "text", "markdown" },
+      },
+      jdtls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -99,7 +103,7 @@ return {
         },
       },
     }
-
+    require("java").setup()
     require("mason").setup()
 
     local ensure_installed = vim.tbl_keys(servers or {})

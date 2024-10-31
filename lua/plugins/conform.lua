@@ -23,6 +23,7 @@ return {
       }
     end,
     formatters_by_ft = {
+      java = {},
       lua = { "stylua" },
       javascript = { "prettierd" },
       typescript = { "prettierd" },
@@ -38,6 +39,7 @@ return {
       svelte = { "prettierd" },
       c = { "clang-format" },
       cpp = { "clang-format" },
+      xml = { "xmllint" },
     },
   },
 }
