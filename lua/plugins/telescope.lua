@@ -1,7 +1,65 @@
+---@type LazyPluginSpec
 return {
   "nvim-telescope/telescope.nvim",
   event = "VimEnter",
   branch = "0.1.x",
+  keys = {
+    {
+      "<leader>sh",
+      "<cmd>lua require('telescope.builtin').help_tags()<CR>",
+      desc = "Telescope: Show Help Tags",
+    },
+    {
+      "<leader>sk",
+      "<cmd>lua require('telescope.builtin').keymaps()<CR>",
+      desc = "Telescope: List Keymaps",
+    },
+    {
+      "<leader>sf",
+      "<cmd>lua require('telescope.builtin').find_files()<CR>",
+      desc = "Telescope: Find Files",
+    },
+    {
+      "<leader>ss",
+      "<cmd>lua require('telescope.builtin').builtin()<CR>",
+      desc = "Telescope: List Pickers",
+    },
+    {
+      "<leader>sw",
+      "<cmd>lua require('telescope.builtin').grep_string()<CR>",
+      desc = "Telescope: Grep Current Word",
+    },
+    {
+      "<leader>sg",
+      "<cmd>lua require('telescope.builtin').live_grep()<CR>",
+      desc = "Telescope: Live Grep Search",
+    },
+    {
+      "<leader>sd",
+      "<cmd>lua require('telescope.builtin').diagnostics()<CR>",
+      desc = "Telescope: Show Diagnostics",
+    },
+    {
+      "<leader>sr",
+      "<cmd>lua require('telescope.builtin').resume()<CR>",
+      desc = "Telescope: Resume Last Picker",
+    },
+    {
+      "<leader>s.",
+      "<cmd>lua require('telescope.builtin').oldfiles()<CR>",
+      desc = "Telescope: Recent Files",
+    },
+    {
+      "<leader><leader>",
+      "<cmd>lua require('telescope.builtin').buffers()<CR>",
+      desc = "Telescope: Open Buffers",
+    },
+    {
+      "<leader>sn",
+      "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })<CR>",
+      desc = "Telescope: Neovim Config Files",
+    },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -24,22 +82,5 @@ return {
 
     pcall(require("telescope").load_extension, "fzf")
     pcall(require("telescope").load_extension, "ui-select")
-
-    -- See `:help telescope.builtin`
-    local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-    vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-    vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-    vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-    vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-    vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-    vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-    vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-    vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-
-    vim.keymap.set("n", "<leader>sn", function()
-      builtin.find_files({ cwd = vim.fn.stdpath("config") })
-    end, { desc = "[S]earch [N]eovim files" })
   end,
 }
