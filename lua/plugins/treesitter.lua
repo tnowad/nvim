@@ -3,7 +3,7 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
-    auto_install = true,
+    auto_install = false,
     highlight = {
       enable = false,
       additional_vim_regex_highlighting = { "ruby" },
