@@ -29,11 +29,6 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = {
-    colorscheme = {
-      "adwaita",
-    },
-  },
   checker = {
     enabled = false,
   },
