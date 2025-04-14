@@ -22,6 +22,14 @@ return {
       }),
       sources = {
         { name = "nvim_lsp" },
+        { name = "path" },
+      },
+    })
+
+    cmp.setup.filetype("copilot-chat", {
+      sources = {
+        { name = "buffer" },
+        { name = "path" },
       },
     })
   end,

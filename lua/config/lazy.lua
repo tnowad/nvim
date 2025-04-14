@@ -23,6 +23,7 @@ require("lazy").setup({
     { import = "plugins" },
 
     { import = "plugins.extras.ai.copilot" },
+    { import = "plugins.extras.ai.copilot-chat" },
     { import = "plugins.extras.lang.typescript" },
   },
   defaults = {
