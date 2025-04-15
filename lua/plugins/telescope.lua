@@ -59,6 +59,37 @@ return {
       "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })<CR>",
       desc = "Telescope: Neovim Config Files",
     },
+
+    {
+      "gd",
+      "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>",
+      desc = "[G]oto [D]efinition",
+    },
+    {
+      "gr",
+      "<cmd>lua require('telescope.builtin').lsp_references()<CR>",
+      desc = "[G]oto [R]eferences",
+    },
+    {
+      "gI",
+      "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>",
+      desc = "[G]oto [I]mplementation",
+    },
+    {
+      "<leader>D",
+      "<cmd>lua require('telescope.builtin').lsp_type_definitions()<CR>",
+      desc = "Type [D]efinition",
+    },
+    {
+      "<leader>ds",
+      "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>",
+      desc = "[D]ocument [S]ymbols",
+    },
+    {
+      "<leader>ws",
+      "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
+      desc = "[W]orkspace [S]ymbols",
+    },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
