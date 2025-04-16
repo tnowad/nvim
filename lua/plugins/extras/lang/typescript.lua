@@ -1,34 +1,19 @@
-local utils = require("utils")
-
----@type LazyPluginSpec[]
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-
-    ---@param opts TSConfig
-    opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
         "typescript",
         "tsx",
         "javascript",
         "jsdoc",
-      })
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    ---@param opts MasonLspconfigSettings
-    opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "eslint" })
-    end,
+      },
+    },
   },
 
   {
-    "williamboman/mason.nvim",
-    -- opts = function(_, opts)
-    --   opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "prettier" })
-    -- end,
-    opts = { ensure_installed = { "prettier" } },
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = { ensure_installed = { "prettierd", "eslint_d" } },
   },
 
   {
