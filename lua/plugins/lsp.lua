@@ -33,7 +33,7 @@ return {
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 
   dependencies = {
-    { "williamboman/mason.nvim" },
+    { "williamboman/mason.nvim", config = true },
     { "williamboman/mason-lspconfig.nvim" },
     { "j-hui/fidget.nvim", opts = {} },
     { "folke/lazydev.nvim", opts = {} },
@@ -41,17 +41,7 @@ return {
   },
 
   opts = {
-    servers = {
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
-        },
-      },
-    },
+    servers = {},
     capabilities = {
       textDocument = {
         completion = {
