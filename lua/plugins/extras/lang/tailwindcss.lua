@@ -33,24 +33,22 @@ return {
           ),
           settings = {
             tailwindCSS = {
-              experimental = {
-                classRegex = {
-                  'cn\\(([^)]*)\\)',
-                  'clsx\\(([^)]*)\\)',
-                  'cva\\(([^)]*)\\)',
-                  'twMerge\\(([^)]*)\\)',
-                }
-              },
               validate = true,
               lint = {
                 cssConflict = 'warning',
                 invalidApply = 'error',
-                invalidConfigPath = 'error',
                 invalidScreen = 'error',
-                invalidTailwindDirective = 'error',
                 invalidVariant = 'error',
+                invalidConfigPath = 'error',
+                invalidTailwindDirective = 'error',
                 recommendedVariantOrder = 'warning',
-                unusedClasses = 'warning',
+              },
+              classAttributes = {
+                'class',
+                'className',
+                'class:list',
+                'classList',
+                'ngClass',
               },
               includeLanguages = {
                 css = 'css',
