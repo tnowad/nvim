@@ -1,3 +1,4 @@
+local utils = require("utils")
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
   callback = function(event)
@@ -40,7 +41,7 @@ return {
     { "saghen/blink.cmp" },
   },
 
-  opts = {
+  opts = utils.merge_with_unique_lists({
     servers = {},
     capabilities = {
       textDocument = {
@@ -51,7 +52,7 @@ return {
         },
       },
     },
-  },
+  }),
 
   keys = {
     {
