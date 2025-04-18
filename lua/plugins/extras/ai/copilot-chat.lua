@@ -1,3 +1,11 @@
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "copilot-chat",
+  callback = function()
+    vim.opt_local.relativenumber = false
+    vim.opt_local.number = false
+  end,
+})
+
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -8,11 +16,9 @@ return {
     build = "make tiktoken",
     branch = "main",
     cmd = "CopilotChat",
-    opts = function()
-      return {
-        window = { width = 0.4 },
-      }
-    end,
+    opts = {
+      window = { width = 0.4 },
+    },
     keys = {
       { "<c-s>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt" },
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
@@ -49,16 +55,5 @@ return {
         desc = "Prompt Actions",
       },
     },
-    config = function(_, opts)
-      local chat = require("CopilotChat")
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "copilot-chat",
-        callback = function()
-          vim.opt_local.relativenumber = false
-          vim.opt_local.number = false
-        end,
-      })
-      chat.setup(opts)
-    end,
   },
 }

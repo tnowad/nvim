@@ -1,21 +1,21 @@
 local utils = require("utils")
 
----@type LazyPluginSpec[]
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, {
+    opts = utils.merge_with_unique_lists({
+      ensure_installed = {
         "go",
         "gomod",
         "gowork",
         "gosum",
-      })
-    end,
+      },
+    }),
   },
+
   {
     "neovim/nvim-lspconfig",
-    opts = {
+    opts = utils.merge_with_unique_lists({
       servers = {
         gopls = {
           settings = {
@@ -75,69 +75,27 @@ return {
           -- end workaround
         end,
       },
-    },
+    }),
   },
-  -- Ensure Go tools are installed
+
   {
-    "williamboman/mason.nvim",
-    opts = { ensure_installed = { "goimports", "gofumpt" } },
-  },
-  {
-    "nvimtools/none-ls.nvim",
-    optional = true,
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-        opts = { ensure_installed = { "gomodifytags", "impl" } },
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = utils.merge_with_unique_lists({
+      ensure_installed = {
+        "goimports",
+        "gofumpt",
+        "gomodifytags",
+        "impl",
       },
-    },
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = vim.list_extend(opts.sources or {}, {
-        nls.builtins.code_actions.gomodifytags,
-        nls.builtins.code_actions.impl,
-        nls.builtins.formatting.goimports,
-        nls.builtins.formatting.gofumpt,
-      })
-    end,
+    }),
   },
+
   {
     "stevearc/conform.nvim",
-    optional = true,
-    opts = {
+    opts = utils.merge_with_unique_lists({
       formatters_by_ft = {
         go = { "goimports", "gofumpt" },
       },
-    },
-  },
-  {
-    "mfussenegger/nvim-dap",
-    optional = true,
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-        opts = { ensure_installed = { "delve" } },
-      },
-      {
-        "leoluz/nvim-dap-go",
-        opts = {},
-      },
-    },
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    dependencies = {
-      "fredrikaverpil/neotest-golang",
-    },
-    opts = {
-      adapters = {
-        ["neotest-golang"] = {
-          -- Here we can set options for neotest-golang, e.g.
-          -- go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
-          dap_go_enabled = true, -- requires leoluz/nvim-dap-go
-        },
-      },
-    },
+    }),
   },
 }

@@ -20,12 +20,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
   spec = {
-    { import = "plugins" },
-
     { import = "plugins.extras.ai.copilot" },
     { import = "plugins.extras.ai.copilot-chat" },
     { import = "plugins.extras.lang.lua" },
     { import = "plugins.extras.lang.typescript" },
+    { import = "plugins.extras.lang.tailwindcss" },
+    { import = "plugins" },
   },
   defaults = {
     lazy = false,

@@ -1,28 +1,39 @@
-return {
+local utils = require("utils")
 
+return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
+    opts = utils.merge_with_unique_lists({
       ensure_installed = {
         "lua",
         "luadoc",
       },
-    },
+    }),
   },
 
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = {
+    opts = utils.merge_with_unique_lists({
       ensure_installed = {
         "lua-language-server",
         "stylua",
+        "luacheck",
       },
-    },
+    }),
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    opts = utils.merge_with_unique_lists({
+      linters_by_ft = {
+        lua = { "luacheck" },
+      },
+    }),
   },
 
   {
     "neovim/nvim-lspconfig",
-    opts = {
+    opts = utils.merge_with_unique_lists({
       servers = {
         lua_ls = {
           settings = {
@@ -47,6 +58,6 @@ return {
           },
         },
       },
-    },
+    }),
   },
 }
