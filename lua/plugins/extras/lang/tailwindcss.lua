@@ -21,16 +21,11 @@ return {
             'typescript',
             'typescriptreact',
           },
-          root_dir = require('lspconfig').util.root_pattern(
-            'tailwind.config.js',
-            'tailwind.config.cjs',
-            'tailwind.config.mjs',
-            'tailwind.config.ts',
-            'postcss.config.js',
-            'postcss.config.cjs',
-            'postcss.config.mjs',
-            'postcss.config.ts'
-          ),
+          root_dir = function(fname)
+            -- HACK: return the current working directory for tailwind monorepo
+            -- tailwindlabs/tailwindcss-intellisense#1338
+            return vim.fn.getcwd()
+          end,
           settings = {
             tailwindCSS = {
               validate = true,
