@@ -23,7 +23,7 @@ return {
           },
           root_dir = function(fname)
             -- HACK: return the current working directory for tailwind monorepo
-            -- tailwindlabs/tailwindcss-intellisense#1338
+            -- https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1338
             return vim.fn.getcwd()
           end,
           settings = {
