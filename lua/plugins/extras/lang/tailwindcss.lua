@@ -21,7 +21,7 @@ return {
             'typescript',
             'typescriptreact',
           },
-          root_dir = function(fname)
+          root_dir = function(_)
             -- HACK: return the current working directory for tailwind monorepo
             -- https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1338
             return vim.fn.getcwd()
@@ -53,6 +53,16 @@ return {
                 typescriptreact = 'javascript',
               },
             },
+          },
+        },
+
+        cssls = {
+          settings = {
+            css = {
+              lint = {
+                unknownAtRules = 'ignore',
+              },
+            }
           },
         },
       },

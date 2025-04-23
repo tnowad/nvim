@@ -26,6 +26,7 @@ require("lazy").setup({
     { import = "plugins.extras.lang.lua" },
     { import = "plugins.extras.lang.typescript" },
     { import = "plugins.extras.lang.tailwindcss" },
+    { import = "plugins.extras.lang.css" },
     { import = "plugins" },
   },
   defaults = {
