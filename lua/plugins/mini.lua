@@ -35,4 +35,5 @@ return {
     }
   },
   { 'echasnovski/mini.comment' },
+  { 'echasnovski/mini.surround' },
 }
