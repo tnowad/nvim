@@ -24,6 +24,7 @@ require("lazy").setup({
     { import = "plugins.extras.ai.copilot" },
     { import = "plugins.extras.ai.copilot-chat" },
     { import = "plugins.extras.lang.lua" },
+    { import = "plugins.extras.lang.tex" },
     { import = "plugins.extras.lang.python" },
     { import = "plugins.extras.lang.typescript" },
     { import = "plugins.extras.lang.tailwindcss" },
