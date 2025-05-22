@@ -1,4 +1,5 @@
 local utils = require("utils")
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
   callback = function(event)
@@ -34,10 +35,10 @@ return {
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 
   dependencies = {
-    { "williamboman/mason.nvim", config = true },
+    { "williamboman/mason.nvim",          config = true },
     { "williamboman/mason-lspconfig.nvim" },
-    { "j-hui/fidget.nvim", opts = {} },
-    { "folke/lazydev.nvim", opts = {} },
+    { "j-hui/fidget.nvim",                opts = {} },
+    { "folke/lazydev.nvim",               opts = {} },
     { "saghen/blink.cmp" },
   },
 

@@ -16,7 +16,7 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = utils.merge_with_unique_lists({
-      ensure_installed = { "prettierd", "eslint_d" },
+      ensure_installed = { "prettierd", "eslint_d", "typescript-language-server" },
     }),
   },
 
