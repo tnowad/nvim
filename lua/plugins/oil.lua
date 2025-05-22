@@ -8,10 +8,6 @@ return {
       view_options = {
         show_hidden = true,
       },
-
-      win_options = {
-        signcolumn = "yes:2",
-      },
     },
 
     keys = {
@@ -23,14 +19,5 @@ return {
       },
     },
     lazy = false,
-  },
-  {
-    "refractalize/oil-git-status.nvim",
-
-    dependencies = {
-      "stevearc/oil.nvim",
-    },
-
-    config = true,
   },
 }
