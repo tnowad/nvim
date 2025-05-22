@@ -21,6 +21,7 @@ require("lazy").setup({
 
   spec = {
     { import = "plugins.extras.lang.fish" },
+    { import = "plugins.extras.lang.markdown" },
     { import = "plugins.extras.ai.copilot" },
     { import = "plugins.extras.ai.copilot-chat" },
     { import = "plugins.extras.lang.lua" },

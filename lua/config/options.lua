@@ -53,7 +53,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Define charac
 vim.opt.inccommand = "split" -- Live preview of substitution
 
 -- Syntax highlighting
-vim.opt.syntax = "on"   -- Enable syntax highlighting
+vim.opt.syntax = "off"  -- Enable syntax highlighting
 vim.opt.synmaxcol = 240 -- Maximum column for syntax highlighting
 
 -- Custom settings
