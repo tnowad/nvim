@@ -7,6 +7,7 @@ return {
   { name = "lsp",        import = "modules.core.lsp",             enable = true },
 
   -- Language modules
+  { name = "json",       import = "modules.languages.json",       enable = true },
   { name = "lua",        import = "modules.languages.lua",        enable = true },
   { name = "typescript", import = "modules.languages.typescript", enable = true },
 

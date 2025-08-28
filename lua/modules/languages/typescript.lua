@@ -1,8 +1,9 @@
+local utils = require("utils")
 local M = {}
 
 M.setup = function()
-  vim.g.mason_tools = { "typescript-language-server" }
-  vim.g.lsp_servers = { "tsserver" }
+  vim.g.mason_tools = utils.add_unique(vim.g.mason_tools, "typescript-language-server")
+  vim.g.lsp_servers = utils.add_unique(vim.g.lsp_servers, "tsserver")
 
   vim.lsp.config('tsserver', {
     init_options = { hostInfo = 'neovim' },

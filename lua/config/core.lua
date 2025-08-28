@@ -15,6 +15,9 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 
 vim.g.mapleader = ' '
 
+vim.g.mason_tools = {}
+vim.g.lsp_servers = {}
+
 local map = vim.keymap.set
 
 map('n', '<leader>o', ':update<CR>:source<CR>')

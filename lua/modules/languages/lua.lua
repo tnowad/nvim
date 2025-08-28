@@ -1,9 +1,10 @@
 local utils = require("utils")
+
 local M = {}
 
 M.setup = function()
-  utils.add_unique(vim.g.mason_tools, "lua-language-server")
-  utils.add_unique(vim.g.lsp_servers, "lua_ls")
+  vim.g.mason_tools = utils.add_unique(vim.g.mason_tools, "lua-language-server")
+  vim.g.lsp_servers = utils.add_unique(vim.g.lsp_servers, "lua_ls")
 
   vim.lsp.config('lua_ls', {
     cmd = { 'lua-language-server' },
