@@ -1,24 +1,15 @@
-local modules_config = require("config.modules")
+local Registry = require("modules.registry")
 
 local M = {}
-
-M.servers = {}
 
 local map = vim.keymap.set
 
 M.setup = function()
-  for _, mod_conf in ipairs(modules_config) do
-    if mod_conf.enable then
-      local mod = require(mod_conf.import)
-      if mod.lsp_servers then
-        vim.list_extend(M.servers, mod.lsp_servers)
-      end
+  Registry.on("lsp:ready", function(servers)
+    for _, server in ipairs(servers) do
+      vim.lsp.enable(server)
     end
-  end
-
-  for _, server_name in ipairs(M.servers) do
-    vim.lsp.enable(server_name)
-  end
+  end)
 
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
@@ -26,6 +17,7 @@ M.setup = function()
       local client = vim.lsp.get_client_by_id(args.data.client_id)
 
       if client then
+        Registry.emit("lsp_ready", client.name)
         -- Enable completion
         if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion) then
           vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup' }

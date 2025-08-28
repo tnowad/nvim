@@ -1,10 +1,11 @@
+local Registry = require("modules.registry")
+
 local M = {}
 
-M.mason_tools = { "lua-language-server" }
-
-M.lsp_servers = { "lua_ls" }
-
 M.setup = function()
+  Registry.provide('mason_tools', { "lua-language-server" })
+  Registry.provide('lsp_servers', { "lua_ls" })
+
   vim.lsp.config('lua_ls', {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
@@ -42,6 +43,13 @@ M.setup = function()
       vim.lsp.buf.format({ async = true })
     end,
   })
+
+  Registry.on("lsp_ready", function(server)
+    if server == "lua_ls" then
+      vim.notify("Lua LSP attached!", vim.log.levels.INFO)
+    end
+  end)
+
 end
 
 return M

@@ -1,8 +1,6 @@
+local Registry = require("modules.registry")
+
 local M = {}
-
-M.mason_tools = { "copilot-language-server" }
-
-M.lsp_servers = { "copilot" }
 
 ---@param bufnr integer,
 ---@param client vim.lsp.Client
@@ -66,6 +64,9 @@ local function sign_out(_, client)
 end
 
 M.setup = function()
+  Registry.provide("mason_tools", { "copilot-language-server" })
+  Registry.provide("lsp_servers", { "copilot" })
+
   vim.lsp.config('copilot', {
     cmd = {
       'copilot-language-server',

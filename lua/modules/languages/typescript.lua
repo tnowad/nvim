@@ -1,10 +1,13 @@
+local Registry = require("modules.registry")
+
 local M = {}
 
-M.mason_tools = { "typescript-language-server" }
-
-M.lsp_servers = { "tsserver" }
-
 M.setup = function()
+  Registry.provide('mason_tools', { "typescript-language-server" })
+  Registry.provide('lsp_servers', { "tsserver" })
+
+
+
   vim.lsp.config('tsserver', {
     init_options = { hostInfo = 'neovim' },
     cmd = { 'typescript-language-server', '--stdio' },
@@ -84,6 +87,12 @@ M.setup = function()
       end, {})
     end,
   })
+  
+  Registry.on("lsp_ready", function(server)
+    if server == "tsserver" then
+      vim.notify("TypeScript LSP attached!", vim.log.levels.INFO)
+    end
+  end)
 end
 
 return M
