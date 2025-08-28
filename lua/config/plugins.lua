@@ -1,8 +1,9 @@
 local plugins = {
-  "config.plugins.pick",
-  "config.plugins.mason",
-  "config.plugins.oil",
-  "config.plugins.blink",
+  "modules.core.pick",
+  "modules.core.mason",
+  "modules.core.oil",
+  "modules.core.blink",
+  "modules.core.lsp",
 }
 
 local packs = {

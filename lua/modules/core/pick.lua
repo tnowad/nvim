@@ -11,8 +11,6 @@ M.setup = function()
   local opts = { silent = true, noremap = true }
   vim.keymap.set('n', '<leader>f', ':Pick files<CR>', opts)
   vim.keymap.set('n', '<leader>h', ':Pick help<CR>', opts)
-  vim.keymap.set('n', '<leader>b', ':Pick buffers<CR>', opts)
-  vim.keymap.set('n', '<leader>r', ':Pick recent<CR>', opts)
 end
 
 return M
