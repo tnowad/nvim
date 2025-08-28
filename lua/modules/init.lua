@@ -1,13 +1,16 @@
 local modules_config = require("config.modules")
-local Registry = require("modules.registry")
 
 local packs, setups = {}, {}
 
 for _, mod_conf in ipairs(modules_config) do
   if mod_conf.enable then
-    local mod = require(mod_conf.import)
-    if mod.packs then vim.list_extend(packs, mod.packs) end
-    if mod.setup then table.insert(setups, mod.setup) end
+    local success, mod = pcall(require, mod_conf.import)
+    if not success then
+      vim.notify("Failed to load module: " .. mod_conf.import, vim.log.levels.ERROR)
+    else
+      if type(mod.packs) == "table" then vim.list_extend(packs, mod.packs) end
+      if type(mod.setup) == "function" then table.insert(setups, mod.setup) end
+    end
   end
 end
 
@@ -17,5 +20,7 @@ for _, setup in ipairs(setups) do
   setup()
 end
 
-Registry.emit("mason:ready", Registry.get("mason_tools"))
-Registry.emit("lsp:ready", Registry.get("lsp_servers"))
+vim.api.nvim_exec_autocmds("User", {
+  pattern = "ModulesReady",
+  modeline = false,
+})

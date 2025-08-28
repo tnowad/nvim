@@ -1,5 +1,3 @@
-local Registry = require("modules.registry")
-
 local M = {}
 local map = vim.keymap.set
 
@@ -39,9 +37,14 @@ local function setup_formatting(client, buffer)
 end
 
 M.setup = function()
-  Registry.on("lsp:ready", function(servers)
-    for _, server in ipairs(servers) do vim.lsp.enable(server) end
-  end)
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "ModulesReady",
+    callback = function()
+      for _, server in ipairs(vim.g.lsp_servers or {}) do
+        vim.lsp.enable(server)
+      end
+    end,
+  })
 
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
@@ -49,7 +52,6 @@ M.setup = function()
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       if not client then return end
 
-      Registry.emit("lsp_ready", client.name)
       setup_completion(client, buffer)
       setup_inline_completion(client)
       setup_signature_help(client)

@@ -1,11 +1,11 @@
-local Registry = require("modules.registry")
 local Auth = require("modules.ai.copilot.auth")
+local utils = require("utils")
 
 local M = {}
 
 function M.setup()
-  Registry.provide("mason_tools", { "copilot-language-server" })
-  Registry.provide("lsp_servers", { "copilot" })
+  utils.add_unique(vim.g.mason_tools, "copilot-language-server")
+  utils.add_unique(vim.g.lsp_servers, "copilot")
 
   vim.lsp.config('copilot', {
     cmd = { 'copilot-language-server', '--stdio' },

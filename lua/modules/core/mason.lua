@@ -1,5 +1,3 @@
-local Registry = require("modules.registry")
-
 local M = {}
 
 M.packs = {
@@ -9,14 +7,17 @@ M.packs = {
 }
 
 M.setup = function()
-  Registry.on("mason:ready", function(tools)
-    require("mason").setup()
-    require("mason-tool-installer").setup({
-      ensure_installed = tools,
-      auto_update = true,
-      run_on_start = true,
-    })
-  end)
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "ModulesReady",
+    callback = function()
+      require("mason").setup()
+      require("mason-tool-installer").setup({
+        ensure_installed = vim.g.mason_tools or {},
+        auto_update = true,
+        run_on_start = true,
+      })
+    end,
+  })
 end
 
 return M
