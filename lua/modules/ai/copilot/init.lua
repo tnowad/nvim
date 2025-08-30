@@ -4,8 +4,8 @@ local utils = require("utils")
 local M = {}
 
 function M.setup()
-  utils.add_unique(vim.g.mason_tools, "copilot-language-server")
-  utils.add_unique(vim.g.lsp_servers, "copilot")
+  vim.g.mason_tools = utils.add_unique(vim.g.mason_tools, "copilot-language-server")
+  vim.g.lsp_servers = utils.add_unique(vim.g.lsp_servers, "copilot")
 
   vim.lsp.config('copilot', {
     cmd = { 'copilot-language-server', '--stdio' },

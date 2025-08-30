@@ -13,8 +13,8 @@ local function setup_inline_completion(client)
   if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion) then
     vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup' }
     vim.lsp.inline_completion.enable(true)
-    map("i", "<Tab>", function()
-      if not vim.lsp.inline_completion.get() then return "<Tab>" end
+    map("i", "<C-x><C-g>", function()
+      if not vim.lsp.inline_completion.get() then return "<C-x><C-g>" end
     end, { expr = true, replace_keycodes = true, desc = "Get inline completion" })
   end
 end
