@@ -12,6 +12,7 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.incsearch = true
 opt.completeopt = { "menu", "menuone", "noselect" }
+opt.wrap = false
 
 vim.g.mapleader = ' '
 

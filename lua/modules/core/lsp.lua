@@ -15,7 +15,7 @@ local function setup_inline_completion(client)
     vim.lsp.inline_completion.enable(true)
     map("i", "<C-x><C-g>", function()
       if not vim.lsp.inline_completion.get() then return "<C-x><C-g>" end
-    end, { expr = true, replace_keycodes = true, desc = "Get inline completion" })
+    end, { expr = true, replace_keycodes = true, desc = "Accept inline completion" })
   end
 end
 
