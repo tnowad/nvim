@@ -5,13 +5,6 @@ M.packs = {
 }
 
 M.setup = function()
-  local pick = require("mini.pick")
-  pick.setup()
-
-  vim.keymap.set('n', '<leader>sf', ':Pick files<CR>', { desc = 'Search files' })
-  vim.keymap.set('n', '<leader>sh', ':Pick help<CR>', { desc = 'Search help' })
-  vim.keymap.set('n', '<leader>sg', ':Pick grep_live<CR>', { desc = 'Search grep' })
-
   require("mini.ai").setup()
   require("mini.pairs").setup()
   require("mini.bracketed").setup()

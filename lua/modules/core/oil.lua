@@ -5,7 +5,11 @@ M.packs = {
 }
 
 M.setup = function()
-  require("oil").setup()
+  require("oil").setup({
+    view_options = {
+      show_hidden = true,
+    },
+  })
   vim.keymap.set('n', '-', ':Oil<CR>')
 end
 
