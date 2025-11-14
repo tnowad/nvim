@@ -3,6 +3,11 @@ local utils = require("utils")
 
 local M = {}
 
+M.packs = {
+  { src = 'https://github.com/CopilotC-Nvim/CopilotChat.nvim' },
+  { src = 'https://github.com/nvim-lua/plenary.nvim' },
+}
+
 function M.setup()
   vim.g.mason_tools = utils.add_unique(vim.g.mason_tools, "copilot-language-server")
   vim.g.lsp_servers = utils.add_unique(vim.g.lsp_servers, "copilot")
@@ -24,6 +29,7 @@ function M.setup()
         { desc = 'Sign out Copilot with GitHub' })
     end,
   })
+  require('CopilotChat').setup()
 end
 
 return M
