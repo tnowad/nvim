@@ -6,6 +6,27 @@ M.packs = {
   { src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 }
 
+local function try_load_fzf()
+  local ok = pcall(function()
+    require('telescope').load_extension('fzf')
+  end)
+
+  if ok then
+    return
+  end
+
+  local path = vim.fn.stdpath('data')
+    .. '/site/pack/core/opt/telescope-fzf-native.nvim'
+
+  vim.notify('fzf-native missing, running make…', vim.log.levels.WARN)
+
+  vim.system({ 'make' }, { cwd = path }):wait()
+
+  pcall(function()
+    require('telescope').load_extension('fzf')
+  end)
+end
+
 M.setup = function()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
@@ -29,7 +50,7 @@ M.setup = function()
     },
   })
 
-  telescope.load_extension('fzf')
+  try_load_fzf()
 
   -- keymaps
   vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
