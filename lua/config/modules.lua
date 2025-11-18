@@ -16,6 +16,7 @@ return {
   { name = "gopls",          import = "modules.languages.gopls",          enable = true },
   { name = "pyright",        import = "modules.languages.pyright",        enable = true },
   { name = "typescript",     import = "modules.languages.typescript",     enable = true },
+  { name = "dart",           import = "modules.languages.dart",           enable = true },
   { name = "typescript_dap", import = "modules.languages.typescript_dap", enable = true },
   { name = "eslint",         import = "modules.tools.eslint",             enable = false },
 
